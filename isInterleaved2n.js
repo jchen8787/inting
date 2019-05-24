@@ -1,4 +1,4 @@
-function isInterleaved(s1, s2, res) {
+function isInterleaved2n(s1, s2, res) {
     if (s1.length === 0 && s2.length === 0 && res.length === 0) {
         return true
     }
@@ -13,4 +13,4 @@ function isInterleaved(s1, s2, res) {
     )
 }
 
-console.log(isInterleaved('what', 'iswu', 'iswwhatu'))
+console.log(isInterleaved2n('what', 'iswu', 'iswwhatu'))

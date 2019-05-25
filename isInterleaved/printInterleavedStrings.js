@@ -16,5 +16,5 @@ function interleavedRecursion(s1, s2, res, m, n) {
     }
 }
 
-// printInterleavedStrings('what', 'isup')
-printInterleavedStrings('ab', 'cd')
+printInterleavedStrings('what', 'iswu')
+// printInterleavedStrings('ab', 'cd')

@@ -48,6 +48,7 @@ const sampleData = [
     [7, 9, 8],
     [1, 2, 3],
     [2, 2, 2],
+    [2, 2, 2, 2],
 ]
 
 const res = filterSupersets(sampleData)

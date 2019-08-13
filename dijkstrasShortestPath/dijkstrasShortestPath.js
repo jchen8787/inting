@@ -1,23 +1,3 @@
-const numVertices = 9
-
-// each edge is represented as [vertexA, vertexB, distance]
-const edges = [
-    [0, 1, 4],
-    [0, 7, 8],
-    [1, 2, 8],
-    [1, 7, 11],
-    [2, 3, 7],
-    [2, 5, 4],
-    [2, 8, 2],
-    [3, 4, 9],
-    [3, 5, 14],
-    [4, 5, 10],
-    [5, 6, 2],
-    [6, 7, 1],
-    [6, 8, 6],
-    [7, 8, 7],
-]
-
 function buildAdjacencyMatrix(numVertices, edges) {
     const matrix = []
 
@@ -57,8 +37,8 @@ function findClosestUnvisited(visited, dist, numVertices) {
     return res
 }
 
-function dijkstra(src, numVertices, edges) {
-    const adjacencyMatrix = buildAdjacencyMatrix(numVertices, edges)
+function dijkstra(graph, src) {
+    const numVertices = graph.length
 
     const dist = []
 
@@ -80,7 +60,7 @@ function dijkstra(src, numVertices, edges) {
         visited.add(cur)
 
         for (let j = 0; j < numVertices; j++) {
-            const edgeDistance = adjacencyMatrix[cur][j]
+            const edgeDistance = graph[cur][j]
 
             if (!visited.has(j) && edgeDistance) {
                 const newDist = dist[cur] + edgeDistance
@@ -95,5 +75,29 @@ function dijkstra(src, numVertices, edges) {
     return dist
 }
 
-const res = dijkstra(0, numVertices, edges)
-console.log(res)
+const numVertices = 9
+
+/* [vertexA, vertexB, distance]
+   graph image: https://media.geeksforgeeks.org/wp-content/cdn-uploads/Fig-11.jpg */
+const edges = [
+    [0, 1, 4],
+    [0, 7, 8],
+    [1, 2, 8],
+    [1, 7, 11],
+    [2, 3, 7],
+    [2, 5, 4],
+    [2, 8, 2],
+    [3, 4, 9],
+    [3, 5, 14],
+    [4, 5, 10],
+    [5, 6, 2],
+    [6, 7, 1],
+    [6, 8, 6],
+    [7, 8, 7],
+]
+
+const graph = buildAdjacencyMatrix(numVertices, edges)
+console.log('graph:\n', graph)
+
+const shortestPaths = dijkstra(graph, 0)
+console.log('shortestPaths:\n', shortestPaths)
